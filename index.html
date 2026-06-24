@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survival Guide — Startup Booster | Startup Geeks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #16335c;
+    --navy-dark: #0e2444;
+    --navy-light: #e8eef7;
+    --red: #f0473a;
+    --red-dark: #d63326;
+    --gray-bg: #f7f8fa;
+    --text: #1e2733;
+    --text-soft: #5b6677;
+    --border: #e3e7ee;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--gray-bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: #fff;
+    padding: 64px 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+    letter-spacing: 0.02em; margin-bottom: 36px; opacity: 0.95;
+  }
+  .hero-logo .rocket { font-size: 18px; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(240,71,58,0.18);
+    color: #ff9d8f;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(240,71,58,0.35);
+  }
+  .hero h1 {
+    font-size: 38px; font-weight: 800; line-height: 1.15;
+    margin-bottom: 16px; max-width: 620px;
+  }
+  .hero p.lead {
+    font-size: 17px; color: #c7d2e3; max-width: 540px; font-weight: 400;
+  }
+
+  /* ===== TOC NAV ===== */
+  .toc {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    position: sticky; top: 0; z-index: 50;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .toc-inner {
+    display: flex; gap: 6px; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc a {
+    flex-shrink: 0;
+    font-size: 13px; font-weight: 600; color: var(--text-soft);
+    text-decoration: none; padding: 8px 14px; border-radius: 100px;
+    white-space: nowrap; transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+  .toc a:hover { background: var(--navy-light); color: var(--navy); }
+
+  /* ===== INTRO CARD ===== */
+  .intro-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin: 36px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .intro-card p { margin-bottom: 14px; font-size: 15.5px; color: var(--text); }
+  .intro-card p:last-child { margin-bottom: 0; }
+  .intro-card .signoff { font-weight: 700; color: var(--navy); }
+
+  /* ===== SECTIONS ===== */
+  .section { padding: 56px 0 8px; scroll-margin-top: 80px; }
+
+  .section-head {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 19px;
+    box-shadow: 0 4px 10px rgba(240,71,58,0.28);
+  }
+  .section-head h2 {
+    font-size: 24px; font-weight: 700; color: var(--navy);
+  }
+
+  .section-body { padding-left: 64px; }
+  .section-body p { margin-bottom: 16px; font-size: 15.5px; }
+  .section-body h4 {
+    font-size: 16.5px; color: var(--navy); font-weight: 700;
+    margin: 24px 0 10px;
+  }
+
+  /* ===== CALLOUT BOXES ===== */
+  .callout {
+    background: var(--navy-light);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 18px 0;
+    border-left: 3px solid var(--navy);
+  }
+  .callout.alert {
+    background: #fff0ee;
+    border-left: 3px solid var(--red);
+  }
+  .callout p { margin-bottom: 0; font-size: 15px; }
+  .callout p + p { margin-top: 10px; }
+  .callout strong { color: var(--navy); }
+  .callout.alert strong { color: var(--red-dark); }
+
+  /* ===== CTA BUTTON ===== */
+  .btn {
+    display: inline-block;
+    background: var(--red);
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 700; font-size: 14.5px;
+    padding: 12px 26px;
+    border-radius: 8px;
+    margin: 6px 0 18px;
+    transition: background 0.15s, transform 0.15s;
+    box-shadow: 0 4px 10px rgba(240,71,58,0.28);
+  }
+  .btn:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  .link-inline {
+    color: var(--red-dark); font-weight: 600; text-decoration: none;
+    border-bottom: 1.5px solid rgba(240,71,58,0.35);
+  }
+  .link-inline:hover { border-bottom-color: var(--red-dark); }
+
+  /* ===== AREE GRID (Sezione 4) ===== */
+  .aree-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0 8px;
+  }
+  .area-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 16px 14px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .area-card:hover { border-color: var(--red); box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+  .area-card .area-title {
+    font-weight: 700; color: var(--navy); font-size: 14px; margin-bottom: 4px;
+  }
+  .area-card .area-desc { font-size: 12.5px; color: var(--text-soft); line-height: 1.5; }
+
+  /* ===== TIMELINE / ROADMAP STEPS (Sezione 5) ===== */
+  .timeline { position: relative; margin: 24px 0; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 9px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--border);
+  }
+  .timeline-step { position: relative; margin-bottom: 22px; padding-left: 8px; }
+  .timeline-step::before {
+    content: '';
+    position: absolute; left: -28px; top: 3px;
+    width: 18px; height: 18px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--red);
+  }
+  .timeline-step h4 { margin: 0 0 6px; font-size: 15.5px; }
+  .timeline-step p { font-size: 14.5px; margin-bottom: 0; color: var(--text-soft); }
+
+  /* ===== PEOPLE CARDS (Sezione 6) ===== */
+  .people-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin: 20px 0;
+  }
+  .person-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .person-card .person-icon {
+    width: 40px; height: 40px;
+    background: var(--navy-light);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px; margin-bottom: 12px;
+  }
+  .person-card h4 { font-size: 16px; color: var(--navy); margin-bottom: 8px; }
+  .person-card p { font-size: 14px; color: var(--text-soft); margin-bottom: 0; }
+
+  /* ===== WEBINAR CARD (Sezione 7) ===== */
+  .webinar-card {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 14px;
+    padding: 28px 30px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .webinar-card::after {
+    content: '';
+    position: absolute; right: -40px; bottom: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(240,71,58,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .webinar-card h4 { color: #fff; font-size: 16px; margin-bottom: 10px; position: relative; z-index: 1; }
+  .webinar-card p { color: #c7d2e3; font-size: 14.5px; margin-bottom: 14px; position: relative; z-index: 1; }
+  .webinar-card .btn { background: var(--red); margin-bottom: 0; }
+
+  .checklist { list-style: none; margin: 14px 0; padding: 0; }
+  .checklist li {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 14.5px; margin-bottom: 8px; color: var(--text-soft);
+  }
+  .checklist li::before {
+    content: '✓'; flex-shrink: 0;
+    width: 18px; height: 18px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+
+  /* ===== STATS STRIP ===== */
+  .stats-strip {
+    display: flex; justify-content: space-around;
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px 20px; margin: 28px 0;
+  }
+  .stat { text-align: center; }
+  .stat .num { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 24px; color: var(--red); }
+  .stat .lbl { font-size: 12px; color: var(--text-soft); font-weight: 600; margin-top: 2px; }
+
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* ===== CLOSING ===== */
+  .closing {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: #fff;
+    padding: 56px 0 64px;
+    margin-top: 40px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .closing::before {
+    content: '🚀';
+    position: absolute; font-size: 140px;
+    opacity: 0.05; right: -10px; bottom: -30px;
+    transform: rotate(15deg);
+  }
+  .closing h2 { color: #fff; font-size: 26px; margin-bottom: 16px; position: relative; z-index: 1; }
+  .closing p { color: #c7d2e3; font-size: 15.5px; max-width: 560px; margin: 0 auto 14px; position: relative; z-index: 1; }
+  .closing .final-cta { font-size: 19px; font-weight: 700; color: #fff; margin-top: 22px; position: relative; z-index: 1; }
+
+  footer {
+    background: var(--navy-dark);
+    color: #8a9bb8;
+    text-align: center;
+    padding: 26px 0;
+    font-size: 12.5px;
+  }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 28px; }
+    .section-body { padding-left: 0; margin-top: 18px; }
+    .section-head { align-items: flex-start; }
+    .aree-grid { grid-template-columns: 1fr 1fr; }
+    .people-grid { grid-template-columns: 1fr; }
+    .stats-strip { flex-direction: column; gap: 16px; }
+  }
+  @media (max-width: 480px) {
+    .aree-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-logo"><span class="rocket">🚀</span> STARTUP GEEKS</div>
+    <span class="hero-tag">Survival Guide</span>
+    <h1>Tutto quello che devi sapere per il tuo Startup Booster</h1>
+    <p class="lead">La guida che ti accompagna passo dopo passo: community, piattaforma, aree di lavoro e le persone che troverai al tuo fianco.</p>
+  </div>
+</section>
+
+<!-- ================= TOC ================= -->
+<nav class="toc">
+  <div class="wrap toc-inner">
+    <a href="#sez0">Prima di iniziare</a>
+    <a href="#sez1">Onboarding</a>
+    <a href="#sez2">Community</a>
+    <a href="#sez3">Piattaforma</a>
+    <a href="#sez4">Aree di lavoro</a>
+    <a href="#sez5">Percorso</a>
+    <a href="#sez6">Consultant & Mentor</a>
+    <a href="#sez7">Webinar</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ================= INTRO ================= -->
+  <div class="intro-card" id="sez0">
+    <p>Cari Founder,</p>
+    <p>Un grandissimo in bocca al lupo per questo percorso che sicuramente sarà intenso e ricco di sfide. Vedrete, però, che sarà anche pieno di soddisfazioni!</p>
+    <p>In questi ultimi giorni vi condivideremo numerose informazioni in molte email. Vi vogliamo condividere questa Survival Guide in cui riepiloghiamo il funzionamento dello Startup Booster: qui potrete trovare tante risposte ai vostri possibili dubbi.</p>
+    <p>Chi ha partecipato allo Startup Builder, il nostro percorso di incubazione, avrà già familiarità con numerosi concetti, poiché alcune informazioni verranno ripetute a beneficio di tutti i partecipanti.</p>
+    <p>La strada è in salita, fare startup non è un percorso semplice, ma cercheremo di affiancarvi e supportarvi in tutto e per tutto nella scalata al lancio e alla crescita del vostro progetto imprenditoriale!</p>
+  </div>
+
+  <!-- ================= SEZIONE 1 ================= -->
+  <section class="section" id="sez1">
+    <div class="section-head">
+      <div class="section-num">1</div>
+      <h2>Cosa aspettarsi prima dell'inizio del percorso</h2>
+    </div>
+    <div class="section-body">
+      <p>Prima ancora che il percorso abbia ufficialmente inizio, ci sono un paio di cose da tenere d'occhio.</p>
+
+      <div class="callout">
+        <p><strong>Tenete monitorata la vostra casella di posta:</strong> riceverete tutte le comunicazioni di onboarding direttamente dal vostro PM nei giorni precedenti al kick-off.</p>
+        <p>Se non lo avete ancora fatto, assicuratevi di aver compilato il <strong>Typeform iniziale</strong> — è il primo passo che ci permette di conoscere meglio voi e il vostro progetto prima di iniziare a lavorare insieme.</p>
+      </div>
+
+      <div class="callout alert">
+        <p><strong>📅 Il punto più importante: il meeting di Kick-off.</strong></p>
+        <p>Si terrà il giorno di inizio dello Startup Booster e vedrà connessi tutti i founder che partiranno con voi in questa edizione. È l'occasione per conoscerci, conoscervi a vicenda e iniziare a far funzionare da subito il valore più grande di questo percorso — il network.</p>
+      </div>
+
+      <p>Vi consigliamo di bloccare questa data in agenda non appena la ricevete: è il primo passo concreto del vostro Startup Booster.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ================= SEZIONE 2 ================= -->
+  <section class="section" id="sez2">
+    <div class="section-head">
+      <div class="section-num">2</div>
+      <h2>Come muovere i primi passi nella Community</h2>
+    </div>
+    <div class="section-body">
+      <p>Come sai hai fatto il tuo ingresso nella community <strong>"Il Club degli Imprenditori"</strong> di Startup Geeks.</p>
+
+      <div class="callout">
+        <p>Il Club <strong>non è</strong> il canale per le comunicazioni ufficiali del percorso — quelle arrivano sempre dal PM o dal tuo Startup Consultant via email. È piuttosto una sorta di <strong>social network pensato per i founder</strong>: uno spazio in cui scambiarsi contatti, fare networking e interagire liberamente con gli altri innovatori della community.</p>
+      </div>
+
+      <h4>Come accedere se non sei ancora registrato?</h4>
+      <p>Hai già ricevuto il link di accesso via email, ma per comodità lo trovi anche qui:</p>
+      <a href="https://accounts.startupgeeks.it/register?utm_source=meetup&utm_medium=referral" class="btn">Clicca qui per registrarti →</a>
+
+      <p>Se non hai mai utilizzato Circle, dovrai scaricare l'app: ti consigliamo di scaricarla sia per pc/mac che per smartphone. Circle è fruibile sia dal sito web che da app, quest'ultima disponibile sia da smartphone (iOS, Android) che da desktop.</p>
+
+      <h4>Come è organizzata la dashboard di Circle?</h4>
+      <p>Nella barra a sinistra trovate tutte le sezioni della piattaforma suddivise in 3 space group:</p>
+
+      <ul class="checklist">
+        <li><strong>Muovi i primi passi in community</strong> — alcuni space introduttivi utili per l'orientamento iniziale su Circle</li>
+        <li><strong>Formazione</strong> — i contenuti della piattaforma relativi alle diverse tematiche, consultabili anche via video direttamente da Circle</li>
+        <li><strong>Spazio di confronto</strong> — diversi space suddivisi per tematiche in cui confrontarti liberamente con gli altri innovatori</li>
+      </ul>
+
+      <p>Le conversazioni su Circle sono informali e libere, senza particolari regole, purché i messaggi siano in linea con i nostri valori.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ================= SEZIONE 3 ================= -->
+  <section class="section" id="sez3">
+    <div class="section-head">
+      <div class="section-num">3</div>
+      <h2>Funzionamento della piattaforma</h2>
+    </div>
+    <div class="section-body">
+      <p>L'accesso alla piattaforma viene sbloccato qualche giorno prima del kick-off, tramite una mail dedicata con le istruzioni per impostare la password.</p>
+
+      <div class="callout">
+        <p>Una volta avuto accesso, troverai dei <strong>contenuti formativi pensati esclusivamente a supporto del tuo percorso consulenziale</strong> — materiali che affiancano il lavoro che farai insieme al tuo Consultant, niente di più.</p>
+        <p>La piattaforma è comunque accessibile in qualsiasi momento da <a href="https://app.startupgeeks.it" class="link-inline">app.startupgeeks.it</a>, così puoi consultarla quando ti serve.</p>
+      </div>
+
+      <p>Sulla sinistra trovi tutte le diverse sezioni della piattaforma su cui puoi navigare, e, in particolare, quella su cui passerai la maggior parte del tempo: <strong>Startup Booster</strong>.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ================= SEZIONE 4 ================= -->
+  <section class="section" id="sez4">
+    <div class="section-head">
+      <div class="section-num">4</div>
+      <h2>Moduli & Aree di lavoro</h2>
+    </div>
+    <div class="section-body">
+      <p>Lo Startup Booster è costruito attorno a <strong>9 aree di expertise</strong>, che rappresentano l'insieme delle competenze su cui il team di Startup Geeks può affiancarti durante il percorso:</p>
+
+      <div class="aree-grid">
+        <div class="area-card"><div class="area-title">Foundations</div><div class="area-desc">Problema, ICP, Use Case, UVP</div></div>
+        <div class="area-card"><div class="area-title">Prodotto</div><div class="area-desc">MVP, sviluppo, feature prioritization</div></div>
+        <div class="area-card"><div class="area-title">Go-to-Market B2C</div><div class="area-desc">Landing, ads, creatività, campagne</div></div>
+        <div class="area-card"><div class="area-title">Go-to-Market B2B</div><div class="area-desc">Sales deck, outbound, sequenze commerciali</div></div>
+        <div class="area-card"><div class="area-title">Traction</div><div class="area-desc">Pricing, retention, conversione, LTV</div></div>
+        <div class="area-card"><div class="area-title">Fundraising</div><div class="area-desc">Financial plan, data room, investitori</div></div>
+        <div class="area-card"><div class="area-title">Brand & Positioning</div><div class="area-desc">Identità, tone of voice, social, SEO</div></div>
+        <div class="area-card"><div class="area-title">Operations & Team</div><div class="area-desc">OKR, CRM, co-founder, accordi</div></div>
+        <div class="area-card"><div class="area-title">Documentazione</div><div class="area-desc">Pitch deck, business plan, one pager</div></div>
+      </div>
+
+      <div class="callout alert">
+        <p>Queste sono le nostre <strong>aree di expertise</strong> — non significa che il tuo percorso le toccherà tutte. Insieme al tuo consulente di vendita avete individuato quali sono i <strong>moduli prioritari</strong> su cui concentrare il lavoro nelle settimane a disposizione. Il tuo Startup Consultant partirà esattamente da lì.</p>
+      </div>
+
+      <p>Durante i vari moduli ti capiterà di essere sommerso da domande e dubbi: è normale! Ricordati che non esistono domande stupide, ma solamente domande non fatte.</p>
+      <p>Ti invitiamo a rivolgerti sempre al tuo Consultant per qualsiasi dubbio o richiesta di supporto. Il Consultant è la tua figura di riferimento durante tutto il percorso, pronto ad aiutarti a superare le difficoltà e a guidarti nei momenti chiave.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ================= SEZIONE 5 ================= -->
+  <section class="section" id="sez5">
+    <div class="section-head">
+      <div class="section-num">5</div>
+      <h2>Percorso personalizzato</h2>
+    </div>
+    <div class="section-body">
+      <p>Con lo Startup Booster avrai un supporto costruito specificamente sulle esigenze del tuo progetto.</p>
+      <p>Il tuo percorso non segue uno schema fisso uguale per tutti: viene costruito in modo <strong>tailor-made</strong> sulla base di quello che emerge dal confronto con il tuo Startup Consultant e sulla base delle priorità reali del tuo progetto in questo momento.</p>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <h4>🎯 Obiettivi a lungo termine</h4>
+          <p>All'inizio del percorso ti verrà presentata una roadmap di lavoro con le tappe principali da raggiungere.</p>
+        </div>
+        <div class="timeline-step">
+          <h4>⚡ Micro-attività a breve termine</h4>
+          <p>Ogni obiettivo viene tradotto in attività operative concrete da mettere a terra insieme al tuo Consultant.</p>
+        </div>
+        <div class="timeline-step">
+          <h4>🔄 Aggiornamento continuo</h4>
+          <p>La roadmap non è un binario rigido: è reinterpretata e aggiornata in base all'evoluzione naturale del progetto.</p>
+        </div>
+      </div>
+
+      <p>Se qualcosa cambia — un'opportunità, un ostacolo, un apprendimento dal mercato — la roadmap si adatta con te. Grazie a questo approccio potrai contare su un confronto continuo e personalizzato con il tuo Consultant, che ti consentirà di monitorare i tuoi progressi e apprezzare i risultati raggiunti al termine del programma.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ================= SEZIONE 6 ================= -->
+  <section class="section" id="sez6">
+    <div class="section-head">
+      <div class="section-num">6</div>
+      <h2>Le figure con cui confrontarti</h2>
+    </div>
+    <div class="section-body">
+      <div class="people-grid">
+        <div class="person-card">
+          <div class="person-icon">🧭</div>
+          <h4>Startup Consultant</h4>
+          <p>Membro del team di Startup Geeks che ti accompagna lungo tutto il percorso. Dopo la call di kick-off ti verrà assegnato il tuo consultant personale: il tuo punto di riferimento per qualsiasi dubbio o necessità, pratica o strategica.</p>
+        </div>
+        <div class="person-card">
+          <div class="person-icon">🎓</div>
+          <h4>Mentor</h4>
+          <p>Professionisti con consolidata esperienza imprenditoriale o manageriale. Ti vengono assegnati quando il tuo Consultant valuta strategico introdurre un confronto di alto livello — generalmente tra la 3ª e la 4ª settimana.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>Potrai confrontarti direttamente con il tuo Consultant per condividere le tue preferenze rispetto al tipo di mentor con cui lavorare, sia in termini di competenze specifiche che di settore di riferimento.</p>
+      </div>
+
+      <p>Oltre a Consultant e Mentor, durante il percorso sono previste anche <strong>sessioni serali</strong> e occasioni di interlocuzione con <strong>partner di vario tipo</strong> — su aree come PR, bandi e fondi, marketing automation, brand e comunicazione, costituzione e burocrazia, e molto altro.</p>
+      <p>In qualsiasi momento del percorso puoi chiedere al tuo Consultant un'intro o un confronto aggiuntivo con queste figure, se ritieni che possa essere utile per il tuo progetto.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ================= SEZIONE 7 ================= -->
+  <section class="section" id="sez7">
+    <div class="section-head">
+      <div class="section-num">7</div>
+      <h2>Sessioni di approfondimento</h2>
+    </div>
+    <div class="section-body">
+      <p>Le sessioni rappresentano un momento fondamentale di condivisione, confronto e contaminazione, pensato per aiutarti a perfezionare la tua idea di business grazie a feedback diretti e approfondimenti mirati.</p>
+
+      <p>Durante il percorso sono previsti dei <strong>webinar in plenaria</strong>, che coinvolgono tutte le startup attualmente impegnate nei nostri percorsi — non solo la tua edizione del Booster, ma l'intera community attiva in quel momento.</p>
+
+      <p>Questi webinar possono essere condotti dai nostri <strong>partner</strong> — per approfondire un argomento specifico legato alle loro aree di competenza — oppure direttamente dal team di <strong>Startup Geeks</strong>. In alcuni casi, potresti essere coinvolto in prima persona come protagonista o ospite di uno di questi momenti.</p>
+
+      <div class="webinar-card">
+        <h4>📅 Calendario completo dei webinar</h4>
+        <p>Titolo, descrizione, eventuale partner coinvolto, giorno e ora dell'incontro e link Google Meet per partecipare — tutto in un'unica dashboard, sempre aggiornata.</p>
+        <a href="https://airtable.com/appmyI6WxH0olBxHn/shrjhWF2Ze4JG823X" class="btn">Vai alla dashboard webinar →</a>
+      </div>
+
+      <p>Tieni sempre d'occhio la dashboard: l'attività di organizzazione di nuovi webinar e nuove partnership è costante, e gli eventi si aggiornano settimanalmente!</p>
+      <p>Tutte le sessioni live si svolgeranno su Google Meet e rappresenteranno anche un'occasione per ascoltare l'esperienza di ex partecipanti del Booster o di esperti di settore, pronti a offrire spunti concreti e applicabili al tuo percorso.</p>
+    </div>
+  </section>
+
+  <div class="stats-strip">
+    <div class="stat"><div class="num">+1.000</div><div class="lbl">Imprese supportate</div></div>
+    <div class="stat"><div class="num">+124</div><div class="lbl">Progetti Booster seguiti</div></div>
+    <div class="stat"><div class="num">+11.5M</div><div class="lbl">Fatturato dei progetti</div></div>
+  </div>
+
+</div>
+
+<!-- ================= CLOSING ================= -->
+<section class="closing">
+  <div class="wrap">
+    <h2>In conclusione</h2>
+    <p>Lo Startup Booster ti mette a disposizione una vasta gamma di possibilità: contenuti formativi mirati, una molteplicità di figure professionali — mentor, partner, startup consultant — e supporto costante lungo tutte le fasi del percorso.</p>
+    <p>Ricorda che il vero asset di ogni founder non è solo l'idea o il progetto, ma soprattutto il <strong>network</strong>: sfrutta questa occasione per entrare in contatto con altri founder come te.</p>
+    <p>Per qualsiasi dubbio, domanda o chiarimento, potrai sempre fare affidamento sul tuo Startup Consultant e su tutto il team dello Startup Booster.</p>
+    <p class="final-cta">Siamo pronti a iniziare insieme: il tuo percorso di crescita parte da qui! 🚀</p>
+  </div>
+</section>
+
+<footer>
+  Startup Geeks S.r.l. SB · startupgeeks.it
+</footer>
+
+</body>
+</html>
